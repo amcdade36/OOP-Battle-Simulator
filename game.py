@@ -11,7 +11,7 @@ def main():
     hero = Hero("Gojo")
 
     # Create goblins ༼ ºل͟º ༽ ༼ ºل͟º ༽ ༼ ºل͟º ༽
-    goblins = [Goblin(f"Goblin {i+1}") for i in range(5)]
+    goblins = [Goblin(f"Goblin {i+1}") for i in range(2)]
 
     # Keep track of how many goblins were defeated
     defeated_goblins = 0
@@ -32,7 +32,7 @@ def main():
         damage = hero.strike()
         total_damage += damage
         if damage == 1000000000:
-            print("Hollow Purple")
+            print('Gojo: "Hollow Purple"')
         print(f"Hero attacks {target_goblin.name} for {damage} damage!")
         target_goblin.take_damage(damage)
 
