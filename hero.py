@@ -27,7 +27,10 @@ class Hero:
             return random.randint(1, self.attack_power)
 
     def receive_damage(self, damage):
-        # TODO Implement take_damage
-        # TODO We should prevent health from going into the NEGATIVE
+        if self.health - damage > 0:
+            self.health -= damage
+        else:
+            self.health = 0
+        print(f"{self.name} takes {damage} damage. Health is now {self.health}.")
     
     #TODO define is_alive
