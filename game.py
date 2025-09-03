@@ -43,7 +43,7 @@ def main():
         for goblin in goblins:
             if goblin.is_alive():
                 damage = goblin.attack()
-                total_damge += damage
+                total_damage += damage
                 print(f"{goblin.name} attacks hero for {damage} damage!")
                 hero.receive_damage(damage)
 
