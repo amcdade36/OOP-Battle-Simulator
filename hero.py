@@ -1,5 +1,6 @@
 import random
 
+
 class Hero:
     """
     This is our hero blueprint.
@@ -18,21 +19,21 @@ class Hero:
         self.name = name
         self.health = 1000
         self.attack_power = random.randint(10, 30)
+        self.defence_power = 10
 
     def strike(self):
-        dice = random.randint(1, 100):
-        if dice == 80:
+        dice = random.randint(1, 50)
+        if dice == 25:
             return 1000000000
         else:
             return random.randint(1, self.attack_power)
 
     def receive_damage(self, damage):
-        if self.health - damage > 0:
-            self.health -= damage
-        else:
+        self.health -= damage
+        if self.health <= 0:
             self.health = 0
         print(f"{self.name} takes {damage} damage. Health is now {self.health}.")
-    
+
     def is_alive(self):
         if self.health > 0:
             return True
