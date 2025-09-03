@@ -17,8 +17,8 @@ class Hero:
     
     def __init__(self, name):
         self.name = name
-        self.health = 1000
-        self.attack_power = random.randint(10, 30)
+        self.health = 100
+        self.attack_power = random.randint(30, 50)
         self.defence_power = 10
 
     def strike(self):
@@ -39,3 +39,9 @@ class Hero:
             return True
         else:
             return False
+
+    def reversed_cursed_technique(self):
+        dice = random.randint(1, 3)
+        if dice == 1:
+            self.health = 200
+            print(f'Gojo: "When you stabbed me through the throat, I gave up on counter attacking and poured all my focus into the reversed cursed technique. \nCursed energy is negative energy. While it can enhance the body, it can’t regenerate it. So you multiply that negative energy against itself \nto create positive energy. That’s the reversed cursed technique!"')
