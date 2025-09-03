@@ -20,8 +20,11 @@ class Hero:
         self.attack_power = random.randint(10, 30)
 
     def strike(self):
-        # TODO Implement the hero's attack logic. It could be stronger or more consistent than a goblin's.
-    
+        dice = random.randint(1, 100):
+        if dice == 80:
+            return 1000000000
+        else:
+            return random.randint(1, self.attack_power)
 
     def receive_damage(self, damage):
         # TODO Implement take_damage
