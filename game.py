@@ -46,7 +46,7 @@ def main():
             if goblin.is_alive():
                 damage = goblin.attack()
                 total_damage += damage
-                print(f"{goblin.name} attacks hero for {damage} damage!")
+                print(f"{goblin.name} attacks {hero.name} for {damage} damage!")
                 hero.receive_damage(damage)
                 if hero.health == 0:
                     hero.reversed_cursed_technique()
