@@ -11,7 +11,7 @@ def main():
     hero = Hero("Gojo")
 
     # Create goblins ༼ ºل͟º ༽ ༼ ºل͟º ༽ ༼ ºل͟º ༽
-    goblins = [Goblin(f"Goblin {i+1}") for i in range(2)]
+    goblins = [Goblin(f"Goblin {i+1}") for i in range(3)]
 
     # Keep track of how many goblins were defeated
     defeated_goblins = 0
