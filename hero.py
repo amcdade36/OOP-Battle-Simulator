@@ -33,4 +33,8 @@ class Hero:
             self.health = 0
         print(f"{self.name} takes {damage} damage. Health is now {self.health}.")
     
-    #TODO define is_alive
+    def is_alive(self):
+        if self.health > 0:
+            return True
+        else:
+            return False
