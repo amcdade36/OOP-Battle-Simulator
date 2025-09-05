@@ -1,6 +1,7 @@
 import random
 from goblin import Goblin
 from hero import Hero
+from boss_toji import Boss_Toji
 
 
 def main():
@@ -11,28 +12,26 @@ def main():
     hero = Hero("Gojo")
 
     # Create goblins ༼ ºل͟º ༽ ༼ ºل͟º ༽ ༼ ºل͟º ༽
-    goblins = [Goblin(f"Goblin {i+1}") for i in range(3)]
+    goblins = [Goblin(f"Goblin {i+1}", "green") for i in range(3)]
 
     # Keep track of how many goblins were defeated
     defeated_goblins = 0
 
     # track total rounds
-    total_rounds = 0
+    total_rounds = 1
 
     # track total damage dealt
     total_damage = 0
 
     # Battle Loop
     while hero.is_alive() and any(goblin.is_alive() for goblin in goblins):
-        print("\nNew Round!")
+        print(f"\nRound {total_rounds}")
         total_rounds += 1
 
         # Hero's turn to attack
         target_goblin = random.choice([goblin for goblin in goblins if goblin.is_alive()])
         damage = hero.strike()
         total_damage += damage
-        if damage == 1000000000:
-            print('Gojo: "Hollow Purple"')
         print(f"Hero attacks {target_goblin.name} for {damage} damage!")
         target_goblin.take_damage(damage)
 
@@ -51,9 +50,35 @@ def main():
                 if hero.health == 0:
                     hero.reversed_cursed_technique()
 
+    boss = Boss_Toji("Toji Fushiguro")
+
+    print("Toji is approaching")
+    while hero.is_alive() and boss.is_alive():
+        print("\nNew Round!")
+        total_rounds += 1
+        if total_rounds == 10:
+            damage = boss.inverted_spear_of_heaven()
+            total_damage += damage
+            print(f"{boss.name} attacks {hero.name} for {damage} damage!")
+            hero.receive_damage(damage)
+            if hero.health == 0:
+                hero.reversed_cursed_technique()
+        else:
+            damage = hero.strike()
+            total_damage += damage
+            print(f"{hero.name} attacks {boss.name} for {damage} damage!")
+            boss.take_damage(damage)
+            print(boss.is_alive())
+
+            if boss.is_alive():
+                damage = boss.attack()
+                total_damage += damage
+                print(f"{boss.name} attacks {hero.name} for {damage} damage!")
+                hero.receive_damage(damage)
+
     # Determine outcome
     if hero.is_alive():
-        print(f"\nThe hero has defeated all the goblins! ༼ ᕤ◕◡◕ ༽ᕤ")
+        print(f"\nThe hero has defeated all the enemies!!!!")
     else:
         print(f"\nThe hero has been defeated. Game Over. (｡•́︿•̀｡)")
 

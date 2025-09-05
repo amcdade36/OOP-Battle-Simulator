@@ -17,16 +17,17 @@ class Hero:
     
     def __init__(self, name):
         self.name = name
-        self.health = 100
-        self.attack_power = random.randint(30, 50)
+        self.health = 500
+        self.attack_power = 50
         self.defence_power = 10
 
     def strike(self):
         dice = random.randint(1, 50)
         if dice == 25:
+            print('Gojo: "Hollow Purple"')
             return 1000000000
         else:
-            return random.randint(1, self.attack_power)
+            return random.randint(30, self.attack_power)
 
     def receive_damage(self, damage):
         self.health -= damage
