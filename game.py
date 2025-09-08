@@ -32,7 +32,7 @@ def main():
         target_goblin = random.choice([goblin for goblin in goblins if goblin.is_alive()])
         damage = hero.strike()
         total_damage += damage
-        print(f"Hero attacks {target_goblin.name} for {damage} damage!")
+        print(f"{hero.name} attacks {target_goblin.name} for {damage} damage!")
         target_goblin.take_damage(damage)
 
         # Check if the target goblin was defeated
@@ -51,12 +51,15 @@ def main():
                     hero.reversed_cursed_technique()
 
     boss = Boss_Toji("Toji Fushiguro")
+    boss_rounds = 0
 
     print("Toji is approaching")
     while hero.is_alive() and boss.is_alive():
         print("\nNew Round!")
+        boss_rounds += 1
         total_rounds += 1
-        if total_rounds == 10:
+        print(boss_rounds)
+        if boss_rounds == 10:
             damage = boss.inverted_spear_of_heaven()
             total_damage += damage
             print(f"{boss.name} attacks {hero.name} for {damage} damage!")
@@ -68,7 +71,6 @@ def main():
             total_damage += damage
             print(f"{hero.name} attacks {boss.name} for {damage} damage!")
             boss.take_damage(damage)
-            print(boss.is_alive())
 
             if boss.is_alive():
                 damage = boss.attack()
